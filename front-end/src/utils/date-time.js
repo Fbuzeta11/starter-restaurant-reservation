@@ -80,3 +80,20 @@ export function next(currentDate) {
   date.setDate(date.getDate() + 1);
   return asDateString(date);
 }
+
+export function formatAs12Hr(time) {
+  let HHMM = formatAsTime(time);
+  if (HHMM < "12:00") {
+    if (HHMM[0] === "0") {
+      HHMM.replace("0", "");
+    }
+    HHMM += "AM";
+  } else if (HHMM === "12:00" || HHMM < "13:00") {
+    HHMM += "PM";
+  } else {
+    const arr = HHMM.split(":");
+    arr[0] -= 12;
+    HHMM = arr.join(":") + "PM";
+  }
+  return HHMM;
+}
