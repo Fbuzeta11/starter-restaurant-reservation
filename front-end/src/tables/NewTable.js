@@ -14,10 +14,17 @@ function NewTable() {
   const [formErrors, setFormErrors] = useState(null);
 
   const handleChange = ({ target }) => {
-    setFormData({
-      ...formData,
-      [target.name]: target.value,
-    });
+    if (target.name === "capacity") {
+      setFormData({
+        ...formData,
+        [target.name]: Number(target.value),
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [target.name]: target.value,
+      });
+    }
   };
 
   const handleSubmit = async (event) => {

@@ -19,14 +19,23 @@ function NewReservation() {
   const [formErrors, setFormErrors] = useState(null);
   //handler form changes for the create form
   const handleChange = ({ target }) => {
-    setFormData({
-      ...formData,
-      [target.name]: target.value,
-    });
+    if (target.name === "people") {
+      setFormData({
+        ...formData,
+        [target.name]: Number(target.value),
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [target.name]: target.value,
+      });
+    }
   };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     const abortController = new AbortController();
+
     try {
       event.preventDefault();
 
