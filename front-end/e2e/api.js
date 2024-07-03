@@ -1,8 +1,8 @@
 const fetch = require("cross-fetch");
 
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "https://starter-restaurant-reservation-1-6jgt.onrender.com/";
-// http://localhost:5001
+  process.env.REACT_APP_API_BASE_URL || "http://localhost:5001";
+
 /**
  * Defines the default headers for these functions to work with `json-server`
  */
